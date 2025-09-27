@@ -15,7 +15,7 @@ const userRoute = require('./routes/users')
 const brandRoute = require('./routes/thuonghieu')
 const materialRoute = require('./routes/chatlieu')
 const originRoute = require('./routes/xuatxu')
-const productSizeRoute = require('./routes/sanpham_size')
+const sizeRoute = require('./routes/size')
 const cateRoute = require("./routes/loaisanpham")
 
 
@@ -24,8 +24,8 @@ app.use('/api/users', userRoute)
 app.use('/api/brands', brandRoute)
 app.use('/api/materials', materialRoute)
 app.use('/api/origins', originRoute)
-app.use('/api/productSizes', productSizeRoute)
 app.use('/api/cates', cateRoute)
+app.use('/api/sizes', sizeRoute)
 
 
 // Route demo

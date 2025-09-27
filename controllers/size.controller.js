@@ -1,31 +1,31 @@
-const Loaisanpham = require("../models/loaisanpham.model");
+const Size = require("../models/size.model");
 
 module.exports = {
   getAll: (req, res) => {
-    Loaisanpham.getAll((err, result) => {
+    Size.getAll((err, result) => {
       if (err) return res.status(500).send(err);
       res.send(result);
     });
   },
   getById: (req, res) => {
     const id = req.params.id;
-    Loaisanpham.getById(id, (result) => { res.send(result); });
+    Size.getById(id, (result) => { res.send(result); });
   },
 
   insert: (req, res) => {
     const data = req.body;
-    Loaisanpham.insert(data, (result) => { res.send(result); });
+    Size.insert(data, (result) => { res.send(result); });
   },
 
   update: (req, res) => {
     const data = req.body;
     const id = req.params.id;
-    Loaisanpham.update(data, id, (result) => { res.send(result); });
+    Size.update(data, id, (result) => { res.send(result); });
   },
 
   delete: (req, res) => {
     const id = req.params.id;
-    Loaisanpham.delete(id, (result) => { res.send(result); });
+    Size.delete(id, (result) => { res.send(result); });
   },
 
 };

@@ -5,10 +5,10 @@ const users = (data) => {
   this.name = data.name;
   this.email = data.email;
   this.password = data.password;
+  this.loainguoidung_id = data.loainguoidung_id;
   this.remember_token = data.remember_token;
   this.created_at = data.created_at;
   this.updated_at = data.updated_at;
-  this.loainguoidung_id = data.loainguoidung_id;
 };
 
 users.getById = (id, callback) => {

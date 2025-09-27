@@ -3,7 +3,7 @@ const db = require("../common/db");
 const chitietdonhang = (data) => {
   this.id = data.id;
   this.donhang_id = data.donhang_id;
-  this.sanpham_size_id = data.sanpham_size_id;
+  this.sanpham_size_color_id = data.sanpham_size_color_id;
   this.chitietdonhang_so_luong = data.chitietdonhang_so_luong;
   this.chitietdonhang_thanh_tien = data.chitietdonhang_thanh_tien;
   this.created_at = data.created_at;

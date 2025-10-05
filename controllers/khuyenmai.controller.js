@@ -9,7 +9,15 @@ module.exports = {
   },
   getById: (req, res) => {
     const id = req.params.id;
-    Khuyenmai.getById(id, (result) => { res.send(result); });
+    Khuyenmai.getById(id, (err, result) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else if (!result) {
+        res.status(404).json({ error: "Không tìm thấy khuyến mãi với ID này" });
+      } else {
+        res.json(result);
+      }
+    });
   },
 
   insert: (req, res) => {

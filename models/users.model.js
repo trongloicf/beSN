@@ -12,8 +12,22 @@ const users = (data) => {
 };
 
 users.getById = (id, callback) => {
-  const sqlString = "SELECT * FROM users WHERE id = ?";
-  db.query(sqlString, [id], (err, result) => { callback(err, result); });
+  const sqlString = `
+    SELECT 
+      u.*,
+      l.loainguoidung_ten,
+      k.khachhang_ten,
+      k.khachhang_sdt,
+      k.khachhang_dia_chi
+    FROM users u
+    LEFT JOIN loainguoidung l ON u.loainguoidung_id = l.id
+    LEFT JOIN khachhang k ON u.id = k.user_id
+    WHERE u.id = ?
+  `;
+  db.query(sqlString, [id], (err, result) => {
+    if (err) return callback(err);
+    callback(null, result[0] || null); // trả về 1 object, không phải array
+  });
 };
 
 users.getAll = (callback) => {
